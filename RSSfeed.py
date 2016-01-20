@@ -15,7 +15,8 @@ def ChemJ_Feed():
 	Output:
 	Str-
 	"""
-	RSS = {'JEP':'http://rss.sciencedirect.com/publication/science/5084', 'JNP':'https://feeds.feedburner.com/acs/jnprdf'}
+	RSS = {'JEP':'http://rss.sciencedirect.com/publication/science/5084', 'JNP':'https://feeds.feedburner.com/acs/jnprdf',
+	'JAFC':'http://feeds.feedburner.com/acs/jafcau'}
 	journal = input("Which journal would you like to view?" + '\n' + str([key for key in RSS.keys()]))
 	titles = [text.title.encode('ascii','replace').decode('utf-8','ignore') + '\n' + text.link for text in feedparser.parse(RSS[journal]).entries]
 	print('\n\n'.join(titles))
