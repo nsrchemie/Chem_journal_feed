@@ -17,11 +17,5 @@ def ChemJ_Feed():
 		if text.startswith(options):
 			webbrowser.open(text[text.find('http:'):])
 
-	# fname = str(date.today())
-	# file = open(str(RSS[journal] + fname, 'w'))
-	# file.write(titles)
-	# file.close()
-
-
 if __name__ == "__main__":
 	ChemJ_Feed()
