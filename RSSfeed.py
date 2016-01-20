@@ -9,8 +9,8 @@ def ChemJ_Feed():
 	save = input('Would you like to save this?')
 	if save == "yes":
 		fname = str(datetime.date.today())
-		file = open(str(RSS[journal] + fname, 'w'))
-		file.write(titles)
+		file = open(journal + fname, 'w')
+		file.write(str(titles))
 		file.close()
 	options = input('\n' + 'Would you like to view a particular title in the browser? Type the first few words of the article.')
 	for text in titles:
