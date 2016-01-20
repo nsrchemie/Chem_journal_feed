@@ -1,6 +1,6 @@
-import feedparser
+from datetime import date
+from feedparser import parse 
 import webbrowser
-import datetime
 def ChemJ_Feed():
 	"""A function that prompts the user to choose from a premade list of Phytochemical/Natural Product articles listed by acronym
 	Upon entering a journal a list of articles from the current RSS feed is returned.  The user is then prompted if they would
@@ -18,11 +18,11 @@ def ChemJ_Feed():
 	RSS = {'JEP':'http://rss.sciencedirect.com/publication/science/5084', 'JNP':'https://feeds.feedburner.com/acs/jnprdf',
 	'JAFC':'http://feeds.feedburner.com/acs/jafcau'}
 	journal = input("Which journal would you like to view?" + '\n' + str([key for key in RSS.keys()]))
-	titles = [text.title.encode('ascii','replace').decode('utf-8','ignore') + '\n' + text.link for text in feedparser.parse(RSS[journal]).entries]
+	titles = [text.title.encode('ascii','replace').decode('utf-8','ignore') + '\n' + text.link for text in parse(RSS[journal]).entries]
 	print('\n\n'.join(titles))
 	save = input('Would you like to save this?')
 	if save == "yes":
-		fname = str(datetime.date.today())
+		fname = str(date.today())
 		file = open(journal + fname, 'w')
 		file.write(str(titles))
 		file.close()
